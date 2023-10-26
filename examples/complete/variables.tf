@@ -65,6 +65,12 @@ variable "security_group_ids" {
   default     = null
 }
 
+variable "parameters" {
+  description = "Set of parameters needs to be set after DB cluster was launched. "
+  type        = list(map(string))
+  default     = []
+}
+
 #alicloud_polardb_endpoint
 variable "endpoint_type" {
   description = "Type of the endpoint. Custom, Cluster, Primary are valid, default to Custom. However when creating a new endpoint, it also only can be Custom."
@@ -103,4 +109,61 @@ variable "connection_prefix" {
   description = "The Prefix of the specified endpoint."
   type        = string
   default     = "testpolardbconn"
+}
+
+#alicloud_polardb_account
+variable "account_password" {
+  description = "Operation password. It may consist of letters, digits, or underlines, with a length of 6 to 32 characters."
+  type        = string
+  default     = "tf_test123"
+}
+
+variable "account_description" {
+  description = "The specification of account description."
+  type        = string
+  default     = "tf_account_description"
+}
+
+variable "kms_encrypted_password" {
+  description = "An KMS encrypts password used to a db account. If the account_password is filled in, this field will be ignored."
+  type        = string
+  default     = ""
+}
+
+variable "kms_encryption_context" {
+  description = "An KMS encryption context,It is valid when kms_encrypted_password is set."
+  type        = map(any)
+  default     = {}
+}
+
+#alicloud_polardb_backup_policy
+
+variable "preferred_backup_period" {
+  description = "PolarDB Cluster backup period. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
+  type        = set(string)
+  default     = ["Tuesday", "Thursday", "Saturday"]
+}
+
+variable "preferred_backup_time" {
+  description = "PolarDB Cluster backup time, in the format of HH:mmZ- HH:mmZ. Time setting interval is one hour. Default to '02:00Z-03:00Z'. China time is 8 hours behind it."
+  type        = string
+  default     = "02:00Z-03:00Z"
+}
+
+variable "data_level2_backup_period" {
+  description = "PolarDB Cluster backup period of level-2 backups. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
+  type        = set(string)
+  default     = ["Tuesday", "Thursday", "Saturday"]
+}
+
+variable "data_level1_backup_retention_period" {
+  description = "PolarDB Cluster retention period of level-1 backups. Valid values: 3 to 14. Unit: days."
+  type        = number
+  default     = 7
+}
+
+variable "data_level2_backup_retention_period" {
+  description = "PolarDB Cluster retention period of level-2 backups. Valid values: 0, 30 to 7300, -1. Default to 0."
+  type        = number
+  default     = 0
 }

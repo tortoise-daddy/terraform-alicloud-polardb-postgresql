@@ -23,6 +23,12 @@ variable "zone_id" {
   default     = ""
 }
 
+variable "db_version" {
+  description = "The specification of the db version."
+  type        = string
+  default     = "11"
+}
+
 variable "pay_type" {
   description = "The specification of the pay type."
   type        = string
@@ -113,6 +119,12 @@ variable "security_group_ids" {
   default     = null
 }
 
+variable "parameters" {
+  description = "Set of parameters needs to be set after DB cluster was launched. "
+  type        = list(map(string))
+  default     = []
+}
+
 #alicloud_polardb_endpoint
 variable "create_endpoint" {
   description = "Controls if endpoint should be created"
@@ -179,4 +191,84 @@ variable "connection_prefix" {
   description = "The Prefix of the specified endpoint."
   type        = string
   default     = ""
+}
+
+#alicloud_polardb_account
+variable "create_account" {
+  description = "Controls if account should be created"
+  type        = bool
+  default     = false
+}
+
+variable "account_description" {
+  description = "The specification of account description."
+  type        = string
+  default     = ""
+}
+
+variable "account_name" {
+  description = "Operation account requiring a uniqueness check. It may consist of lower case letters, numbers, and underlines, and must start with a letter and have no more than 16 characters."
+  type        = string
+  default     = ""
+}
+
+variable "account_password" {
+  description = "Operation password. It may consist of letters, digits, or underlines, with a length of 6 to 32 characters."
+  type        = string
+  default     = ""
+}
+
+variable "kms_encrypted_password" {
+  description = "An KMS encrypts password used to a db account. If the account_password is filled in, this field will be ignored."
+  type        = string
+  default     = ""
+}
+
+variable "kms_encryption_context" {
+  description = "An KMS encryption context,It is valid when kms_encrypted_password is set."
+  type        = map(any)
+  default     = {}
+}
+
+variable "account_type" {
+  description = "Account type, Valid values are Normal, Super, Default to Normal."
+  type        = string
+  default     = "Normal"
+}
+
+#alicloud_polardb_backup_policy
+variable "create_backup_policy" {
+  description = "Controls if backup policy should be created"
+  type        = bool
+  default     = false
+}
+
+variable "preferred_backup_period" {
+  description = "PolarDB Cluster backup period. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
+  type        = set(string)
+  default     = null
+}
+
+variable "preferred_backup_time" {
+  description = "PolarDB Cluster backup time, in the format of HH:mmZ- HH:mmZ. Time setting interval is one hour. Default to '02:00Z-03:00Z'. China time is 8 hours behind it."
+  type        = string
+  default     = null
+}
+
+variable "data_level1_backup_retention_period" {
+  description = "PolarDB Cluster retention period of level-1 backups. Valid values: 3 to 14. Unit: days."
+  type        = number
+  default     = null
+}
+
+variable "data_level2_backup_retention_period" {
+  description = "PolarDB Cluster retention period of level-2 backups. Valid values: 0, 30 to 7300, -1. Default to 0."
+  type        = number
+  default     = null
+}
+
+variable "data_level2_backup_period" {
+  description = "PolarDB Cluster backup period of level-2 backups. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
+  type        = set(string)
+  default     = null
 }
