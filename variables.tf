@@ -119,6 +119,12 @@ variable "security_group_ids" {
   default     = null
 }
 
+variable "deletion_lock" {
+  description = "Valid values are 0, 1. 1 means to open the cluster protection lock, 0 means to close the cluster protection lock. Cannot modify after created when pay_type is Prepaid. "
+  type        = number
+  default     = null
+}
+
 variable "parameters" {
   description = "Set of parameters needs to be set after DB cluster was launched. "
   type        = list(map(string))
@@ -244,7 +250,7 @@ variable "create_backup_policy" {
 }
 
 variable "preferred_backup_period" {
-  description = "PolarDB Cluster backup period. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
+  description = "PolarDB Cluster backup period. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday."
   type        = set(string)
   default     = null
 }
@@ -262,13 +268,13 @@ variable "data_level1_backup_retention_period" {
 }
 
 variable "data_level2_backup_retention_period" {
-  description = "PolarDB Cluster retention period of level-2 backups. Valid values: 0, 30 to 7300, -1. Default to 0."
+  description = "PolarDB Cluster retention period of level-2 backups. Valid values: 0, 30 to 7300, -1."
   type        = number
   default     = null
 }
 
 variable "data_level2_backup_period" {
-  description = "PolarDB Cluster backup period of level-2 backups. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
+  description = "PolarDB Cluster backup period of level-2 backups. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday."
   type        = set(string)
   default     = null
 }

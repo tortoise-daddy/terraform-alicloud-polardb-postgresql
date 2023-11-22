@@ -9,10 +9,11 @@ period                      = 2
 security_ips                = []
 maintain_time               = "16:00Z-17:00Z"
 collector_status            = "Enable"
+deletion_lock               = 1
 parameters = [
   {
     name  = "autovacuum_vacuum_cost_limit"
-    value = "10000"
+    value = "9999"
   }
 ]
 #alicloud_polardb_endpoint

@@ -17,6 +17,7 @@ module "default" {
   collector_status            = var.collector_status
   tde_status                  = "Disabled"
   security_group_ids          = var.security_group_ids
+  deletion_lock               = var.deletion_lock
   tags = {
     Created = "TF"
   }

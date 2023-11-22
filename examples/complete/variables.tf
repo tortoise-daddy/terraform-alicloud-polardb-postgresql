@@ -65,6 +65,12 @@ variable "security_group_ids" {
   default     = null
 }
 
+variable "deletion_lock" {
+  description = "Valid values are 0, 1. 1 means to open the cluster protection lock, 0 means to close the cluster protection lock. Cannot modify after created when pay_type is Prepaid. "
+  type        = number
+  default     = null
+}
+
 variable "parameters" {
   description = "Set of parameters needs to be set after DB cluster was launched. "
   type        = list(map(string))
