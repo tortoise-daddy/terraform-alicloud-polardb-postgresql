@@ -51,7 +51,7 @@ output "account_id" {
 
 output "backup_policy_retention_period" {
   description = "Cluster backup retention days, Fixed for 7 days, not modified."
-  value       = module.default.backup_retention_period
+  value       = module.default.backup_policy_retention_period
 }
 
 output "data_level1_backup_retention_period" {
