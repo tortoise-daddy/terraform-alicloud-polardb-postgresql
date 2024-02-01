@@ -1,5 +1,5 @@
 
-db_node_class               = "polar.pg.x8.xlarge"
+db_node_class               = "polar.pg.x4.medium"
 polardb_cluster_description = "update_polardb_cluster_description"
 modify_type                 = "Upgrade"
 db_node_count               = 3
@@ -17,14 +17,17 @@ parameters = [
   }
 ]
 #alicloud_polardb_endpoint
-endpoint_type      = "Custom"
-read_write_mode    = "ReadWrite"
-nodes              = []
-auto_add_new_nodes = "Enable"
-endpoint_config    = {}
-net_type           = "Private"
+endpoint_type             = "Custom"
+read_write_mode           = "ReadWrite"
+nodes                     = []
+auto_add_new_nodes        = "Enable"
+endpoint_config           = {}
+net_type                  = "Private"
+private_connection_prefix = "testpolardbconnprefix"
+private_port              = "5432"
 #alicloud_polardb_endpoint_address
-connection_prefix = "testpolardbconnprefix"
+connection_prefix = "testpolardbconnprefix-public"
+port              = "5432"
 #alicloud_polardb_account
 account_password       = "tf_test123456"
 account_description    = "update_tf_account_description"
@@ -36,4 +39,29 @@ preferred_backup_time               = "02:00Z-03:00Z"
 data_level1_backup_retention_period = 10
 data_level2_backup_retention_period = 40
 data_level2_backup_period           = ["Tuesday", "Saturday"]
-
+#alicloud_polardb_cluster_endpoint
+cluster_endpoint = {
+  endpoint = {
+    #private adress
+    connection_prefix = "terraform-test"
+    port              = 5432
+  }
+  public_address = {
+    #public adress
+    connection_prefix = "terraform-test-public"
+    port              = 5432
+  }
+}
+#alicloud_polardb_primary_endpoint
+primary_endpoint = {
+  endpoint = {
+    #private adress
+    connection_prefix = "terraform-test"
+    port              = 5432
+  }
+  public_address = {
+    #public adress
+    connection_prefix = "terraform-test-public"
+    port              = 5432
+  }
+}
