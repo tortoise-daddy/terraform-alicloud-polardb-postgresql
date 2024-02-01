@@ -110,11 +110,29 @@ variable "net_type" {
   default     = "Public"
 }
 
+variable "private_connection_prefix" {
+  description = "The private connection address prefix of the specified custom endpoint."
+  type        = string
+  default     = null
+}
+
+variable "private_port" {
+  description = "The private connection port of the specified custom endpoint. Valid between 1000 and 5999."
+  type        = string
+  default     = "5432"
+}
+
 #alicloud_polardb_endpoint_address
 variable "connection_prefix" {
-  description = "The Prefix of the specified endpoint."
+  description = "The public connection address prefix of the specified custom endpoint."
   type        = string
   default     = "testpolardbconn"
+}
+
+variable "port" {
+  description = "The public connection port of the specified custom endpoint. Valid between 1000 and 5999."
+  type        = string
+  default     = "5432"
 }
 
 #alicloud_polardb_account
@@ -156,6 +174,12 @@ variable "preferred_backup_time" {
   default     = "02:00Z-03:00Z"
 }
 
+variable "data_level1_backup_period" {
+  description = "PolarDB Cluster of level-1 backup period. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. NOTE: Note Select at least two values. Separate multiple values with commas (,)."
+  type        = set(string)
+  default     = null
+}
+
 variable "data_level2_backup_period" {
   description = "PolarDB Cluster backup period of level-2 backups. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. Default to ['Tuesday','Thursday', 'Saturday']."
   type        = set(string)
@@ -172,4 +196,17 @@ variable "data_level2_backup_retention_period" {
   description = "PolarDB Cluster retention period of level-2 backups. Valid values: 0, 30 to 7300, -1. Default to 0."
   type        = number
   default     = 0
+}
+
+#alicloud_polardb_cluster_endpoint
+variable "cluster_endpoint" {
+  description = "Map of cluster endpoints and their attributes. The cluster endpoint is created by default with PolarDB cluster."
+  type        = any
+  default     = {}
+}
+#alicloud_polardb_primary_endpoint
+variable "primary_endpoint" {
+  description = "Map of primary endpoints and their attributes. The cluster endpoint is created by default with PolarDB cluster."
+  type        = any
+  default     = {}
 }

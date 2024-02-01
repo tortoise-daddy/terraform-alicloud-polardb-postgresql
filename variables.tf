@@ -183,7 +183,19 @@ variable "net_type" {
 variable "ssl_auto_rotate" {
   description = "Specifies whether automatic rotation of SSL certificates is enabled. Valid values: Enable,Disable."
   type        = string
-  default     = "Disable"
+  default     = null
+}
+
+variable "private_connection_prefix" {
+  description = "The private connection address prefix of the specified custom endpoint."
+  type        = string
+  default     = null
+}
+
+variable "private_port" {
+  description = "The private connection port of the specified custom endpoint. Valid between 1000 and 5999."
+  type        = string
+  default     = null
 }
 
 #alicloud_polardb_endpoint_address
@@ -197,6 +209,12 @@ variable "connection_prefix" {
   description = "The Prefix of the specified endpoint."
   type        = string
   default     = ""
+}
+
+variable "port" {
+  description = "The public connection port of the specified custom endpoint. Valid between 1000 and 5999."
+  type        = string
+  default     = null
 }
 
 #alicloud_polardb_account
@@ -255,6 +273,12 @@ variable "preferred_backup_period" {
   default     = null
 }
 
+variable "data_level1_backup_period" {
+  description = "PolarDB Cluster of level-1 backup period. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday. NOTE: Note Select at least two values. Separate multiple values with commas (,)."
+  type        = set(string)
+  default     = null
+}
+
 variable "preferred_backup_time" {
   description = "PolarDB Cluster backup time, in the format of HH:mmZ- HH:mmZ. Time setting interval is one hour. Default to '02:00Z-03:00Z'. China time is 8 hours behind it."
   type        = string
@@ -277,4 +301,16 @@ variable "data_level2_backup_period" {
   description = "PolarDB Cluster backup period of level-2 backups. Valid values: Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday."
   type        = set(string)
   default     = null
+}
+
+variable "cluster_endpoint" {
+  description = "Map of cluster endpoints and their attributes."
+  type        = any
+  default     = {}
+}
+
+variable "primary_endpoint" {
+  description = "Map of primary endpoints and their attributes."
+  type        = any
+  default     = {}
 }
