@@ -16,6 +16,8 @@ These types of resources are supported:
 * [alicloud_polardb_endpoint_address](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/polardb_endpoint_address)
 * [alicloud_polardb_account](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/polardb_account)
 * [alicloud_polardb_backup_policy](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/polardb_backup_policy)
+* [alicloud_polardb_cluster_endpoint](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/polardb_cluster_endpoint)
+* [alicloud_polardb_primary_endpoint](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/polardb_primary_endpoint)
 
 ## Usage
 
