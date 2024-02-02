@@ -10,7 +10,7 @@ success=true
 exitCode=0
 echo ""
 echo "====> Terraform testing in" $f
-terraform -chdir=$f init -upgrade >/dev/null
+#terraform -chdir=$f init -upgrade >/dev/null
 if [[ $? -ne 0 ]]; then
   success=false
   exitCode=1

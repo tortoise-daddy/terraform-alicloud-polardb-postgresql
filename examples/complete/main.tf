@@ -1,3 +1,13 @@
+variable "access_key" {}
+variable "secret_key" {}
+
+provider "alicloud" {
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+
+  region     = "ap-southeast-1"
+}
+
 data "alicloud_polardb_node_classes" "default" {
   db_type    = "PostgreSQL"
   db_version = "11"
