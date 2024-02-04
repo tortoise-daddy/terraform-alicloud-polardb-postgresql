@@ -1,4 +1,9 @@
-## 1.3.0 (Unreleased)
+## 1.4.0 (Unreleased)
+## 1.3.0 (2024-02-04)
+
+IMPROVEMENTS:
+- Support resource: alicloud_polardb_cluster_endpoint, alicloud_polardb_primary_endpoint. Support modify connect port. [GH-9](https://github.com/alibabacloud-automation/terraform-alicloud-polardb-postgresql/pull/9)
+
 ## 1.2.0 (2023-11-27)
 
 IMPROVEMENTS:
