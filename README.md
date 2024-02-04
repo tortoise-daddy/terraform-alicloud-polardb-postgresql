@@ -32,7 +32,6 @@ module "example" {
   modify_type                   = "Upgrade"
   renewal_status                = "Normal"
   tde_status                    = "Disabled"
-  encrypt_new_tables            = "OFF"
   #alicloud_polardb_endpoint
   create_endpoint               = true
   endpoint_type                 = "Custom"
