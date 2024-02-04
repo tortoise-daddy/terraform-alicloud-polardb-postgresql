@@ -1,4 +1,9 @@
 ## 1.4.0 (Unreleased)
+
+## 1.3.1 (2024-02-04)
+
+- update README [GH-10](https://github.com/alibabacloud-automation/terraform-alicloud-polardb-postgresql/pull/11)
+
 ## 1.3.0 (2024-02-04)
 
 IMPROVEMENTS:
