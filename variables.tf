@@ -297,6 +297,12 @@ variable "data_level2_backup_period" {
   default     = null
 }
 
+variable "log_backup_retention_period" {
+  description = "The retention period of the log backups. Valid values are `3 to 7300`, `-1`."
+  type        = string
+  default     = null
+}
+
 variable "cluster_endpoint" {
   description = "Map of cluster endpoints and their attributes. The cluster endpoint is created by default with PolarDB cluster. Valid keys: endpoint,public_address"
   type        = any

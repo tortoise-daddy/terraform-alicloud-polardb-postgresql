@@ -52,7 +52,7 @@ module "default" {
   nodes                     = var.nodes
   auto_add_new_nodes        = var.auto_add_new_nodes
   endpoint_config           = var.endpoint_config
-  ssl_enabled               = "Enable"
+  ssl_enabled               = var.ssl_enabled
   net_type                  = var.net_type
   private_connection_prefix = var.private_connection_prefix
   private_port              = var.private_port
@@ -75,4 +75,5 @@ module "default" {
   data_level1_backup_retention_period = var.data_level1_backup_retention_period
   data_level2_backup_retention_period = var.data_level2_backup_retention_period
   data_level2_backup_period           = var.data_level2_backup_period
+  log_backup_retention_period         = var.log_backup_retention_period
 }
