@@ -2,7 +2,7 @@
 variable "db_node_class" {
   description = "The db_node_class of cluster node."
   type        = string
-  default     = "polar.pg.x8.xlarge"
+  default     = "polar.pg.x4.medium"
 }
 
 variable "polardb_cluster_description" {
@@ -104,6 +104,12 @@ variable "endpoint_config" {
   default     = {}
 }
 
+variable "ssl_enabled" {
+  description = "Specifies how to modify the SSL encryption status. Valid values: Disable, Enable, Update."
+  type        = string
+  default     = "Enable"
+}
+
 variable "net_type" {
   description = "The network type of the endpoint address.Valid values: Public, Private, Inner."
   type        = string
@@ -126,7 +132,7 @@ variable "private_port" {
 variable "connection_prefix" {
   description = "The public connection address prefix of the specified custom endpoint."
   type        = string
-  default     = "testpolardbconn"
+  default     = "testpgconnprefix-public"
 }
 
 variable "port" {
@@ -189,6 +195,12 @@ variable "data_level2_backup_retention_period" {
   description = "PolarDB Cluster retention period of level-2 backups. Valid values: 0, 30 to 7300, -1. Default to 0."
   type        = number
   default     = 0
+}
+
+variable "log_backup_retention_period" {
+  description = "The retention period of the log backups. Valid values are `3 to 7300`, `-1`."
+  type        = string
+  default     = "8"
 }
 
 #alicloud_polardb_cluster_endpoint

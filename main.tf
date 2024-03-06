@@ -105,4 +105,5 @@ resource "alicloud_polardb_backup_policy" "backup_policy" {
   data_level1_backup_retention_period = var.data_level1_backup_retention_period
   data_level2_backup_retention_period = var.data_level2_backup_retention_period
   data_level2_backup_period           = var.data_level2_backup_period
+  log_backup_retention_period         = var.log_backup_retention_period
 }
