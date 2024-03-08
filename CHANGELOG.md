@@ -1,4 +1,9 @@
-## 1.4.0 (Unreleased)
+## 1.5.0 (Unreleased)
+
+## 1.4.0 (2024-03-08)
+
+IMPROVEMENTS:
+- alicloud_polardb_backup_policy:Support log_backup_policy [GH-12](https://github.com/alibabacloud-automation/terraform-alicloud-polardb-postgresql/pull/12)
 
 ## 1.3.1 (2024-02-04)
 
