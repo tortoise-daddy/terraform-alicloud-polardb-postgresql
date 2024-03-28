@@ -37,7 +37,7 @@ module "example" {
   endpoint_type                 = "Custom"
   read_write_mode               = "ReadOnly"
   auto_add_new_nodes            = "Enable"
-  net_type                      = "Public"
+  net_type                      = "Private"
   #alicloud_polardb_endpoint_address
   create_endpoint_address       = true
   connection_prefix             = "testpolardbconn"

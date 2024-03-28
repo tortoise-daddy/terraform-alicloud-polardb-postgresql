@@ -113,7 +113,7 @@ variable "ssl_enabled" {
 variable "net_type" {
   description = "The network type of the endpoint address.Valid values: Public, Private, Inner."
   type        = string
-  default     = "Public"
+  default     = "Private"
 }
 
 variable "private_connection_prefix" {
